@@ -15,10 +15,10 @@ exports.checkAccountPayload = (req, res, next) => {
     error.message = 'name and budget must be between 3 and 100'
     next(error)
   } else if (typeof budget !== 'number' || !isNaN(budget)) {
-    error.message = 'budget of account must be a number'
+    error.message = 'must be a number'
     next(error)
   } else if (budget < 0 || budget > 1000000) {
-    error.message = 'budget of account is too large or too small'
+    error.message = 'too large or too small'
     next(error)
   }
 }
@@ -54,5 +54,4 @@ exports.checkAccountId = async (req, res, next) => {
   } catch(err) {
     next(err)
   }
-  
 }
